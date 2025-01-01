@@ -16,6 +16,18 @@ mt.__index = function(tab, key)
   end
 end
 
+mt.__newindex = function(tab, key, value)
+  if SPECIAL_KEYS[key] then
+    if SPECIAL_KEYS[key] > #tab then
+      assert(false, "vector value assignment (letter used is ".. key ..") is out of range!")
+    end
+
+    tab[SPECIAL_KEYS[key]] = value
+  else
+    rawset(tab, key, value)
+  end
+end
+
 local vector_setup = function(default, size, ...)
   local vec = {}
   for i=1, size do
