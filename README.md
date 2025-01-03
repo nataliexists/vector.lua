@@ -30,8 +30,7 @@ print(v.y) --> -265
 ```
 You can also access values in vectors using letters. specifically x, y, z, and w, in that order, but r, g, b, and a also works the same for reasons I'll get into later.
 
-You can also perform most arithmetic operators on vectors (namely +, -, /, \*, %, ^, and negation).
-Example:
+You can perform most arithmetic operations on vectors (namely +, -, /, \*, %, ^, and negation).
 ```lua
 a = Vector(3, 10, -14)
 b = Vector(-6, 22, 5)
@@ -55,12 +54,16 @@ print(unpack(v * 2)) --> 6       10
 
 ### Vector(...)
 Creates a vector with a size of the length of `...`, with each of the values in the vector corresponding to the argument of the same index.
+
+Example:
 ```lua
 v = Vector(644, 213, -186, 320, 123)
 ```
 
 ### Vec1, Vec2, Vec3, and Vec4(...)
 Like `Vector` except that it has a set size and any missing values are automatically set to 0.
+
+Example:
 ```lua
 v = Vec3(1,2)
 print(v.x) --> 0
@@ -70,6 +73,8 @@ print(v.z) --> 0
 
 ### Vec(size, ...)
 `Vector` but the size is set by the `size` argument.
+
+Example:
 ```lua
 v = Vec(100, 5, 8, 123)
 print(v.x)   --> 5
@@ -79,6 +84,8 @@ print(v[54]) --> 0
 
 ### VecC(...)
 `Vec4` but the default value is 1 instead of 0. Mainly made for [LÖVE](https://love2d.org)'s colo(u)r values. This is why you can also use r, g, b, and a to access vectors.
+
+Example:
 ```lua
 col = VecC(1,0,0)
 col.b = 1
